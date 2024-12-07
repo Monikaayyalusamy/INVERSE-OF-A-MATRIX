@@ -11,7 +11,40 @@ To write a python program to find the inverse of a matrix
 ### Step 4: 
 
 ## Program:
-## Output:
+    import numpy as np
+
+def find_inverse(matrix):
+    # Convert the matrix into a NumPy array
+    matrix = np.array(matrix)
+    
+    # Check if the matrix is square
+    if matrix.shape[0] != matrix.shape[1]:
+        raise ValueError("Matrix is not square and cannot have an inverse.")
+    
+    # Compute the determinant
+    determinant = np.linalg.det(matrix)
+    if determinant == 0:
+        raise ValueError("Matrix is singular and does not have an inverse.")
+    
+    # Compute the inverse
+    inverse_matrix = np.linalg.inv(matrix)
+    return inverse_matrix
+
+# Given matrix
+matrix = [
+    [2, 1, 1],
+    [1, 1, 1],
+    [1, -1, 2]
+]
+
+try:
+    # Find and print the inverse
+    inverse = find_inverse(matrix)
+    print(inverse)
+except ValueError as e:
+    print(e)
+
+## Output:![output image](<Untitled design.png>)
 ## Result:
 Thus the inverse of given matrix is successfully solved using python program
 
